@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<Product Id="dd4bf136-533b-44dd-ad16-f3becc68a10e" Name="TheWhitakers.WiXSample" Language="1033" Version="1.0.0.0" Manufacturer="TheWhitakers.WiXSample" UpgradeCode="cc28fd9b-b721-4df9-845f-834a522ebd20">
+		<Package InstallerVersion="200" Compressed="yes" />
+
+		<Media Id="1" Cabinet="media1.cab" EmbedCab="yes" />
+
+		<Directory Id="TARGETDIR" Name="SourceDir">
+			<Directory Id="ProgramFilesFolder">
+				<Directory Id="COMPANY" Name="TheWhitakers">
+					<Directory Id="INSTALLDIR" Name="WiXSample">
+						<!-- TODO: Remove the comments around this Component element and the ComponentRef below in order to add resources to this installer. -->
+						<Component Id="StandardInclusions" Guid="89c16784-8617-4bba-b804-d921d4c500f5">
+							<File Id="MyApplicationFile" Name="$(var.TheWhitakers.WiXSample.HelloWorld.TargetFileName)" 
+								  Source="$(var.TheWhitakers.WiXSample.HelloWorld.TargetPath)"
+								DiskId="1" KeyPath="yes">
+								<Shortcut Id="startMenuHelloWorld" Directory="ProgramMenuDir" Name="HelloWorld"
+									WorkingDirectory="INSTALLDIR" Advertise="yes" Icon="HelloWorld.ico" IconIndex="0" />
+								<Shortcut Id="desktopHelloWorld" Directory="DesktopFolder" Name="HelloWorld"
+									WorkingDirectory="INSTALLDIR" Icon="HelloWorld.ico" IconIndex="0" Advertise="yes" />
+							</File>
+							<File Id="HelperDLL" Name="README.txt" DiskId="1" Source="README.txt" />							
+						</Component>
+					</Directory>
+				</Directory>
+			</Directory>
+
+			<Directory Id="ProgramMenuFolder" Name="Programs">
+				<Directory Id="ProgramMenuDir" Name="HelloWorld">
+					<Component Id="ProgramMenuDir" Guid="97e1b2a6-3484-411e-864f-98cc664cb0d5">
+						<RemoveFolder Id="ProgramMenuDir" On="uninstall" />
+						<RegistryValue Root="HKCU" Key="Software\TheWhitakers\HelloWorld" Type="string" Value="" KeyPath="yes"/>
+					</Component>
+				</Directory>
+			</Directory>
+
+			<Directory Id="DesktopFolder" Name="Desktop" />
+		</Directory>
+
+		<Feature Id="ProductFeature" Title="TheWhitakers.WiXSample" Level="1">
+			<!-- TODO: Remove the comments around this ComponentRef element and the Component above in order to add resources to this installer. -->
+			<ComponentRef Id="StandardInclusions" />
+			<ComponentRef Id="ProgramMenuDir" />
+			
+			<!-- Note: The following ComponentGroupRef is required to pull in generated authoring from project references. -->
+			<ComponentGroupRef Id="Product.Generated" />
+		</Feature>
+
+		<Icon Id="HelloWorld.ico" SourceFile="HelloWorld.ico" />
+
+		<UI Id="MyWixUI_Mondo">
+			<UIRef Id="WixUI_Mondo" />
+
+			<DialogRef Id="UserRegistrationDlg" />
+
+			<Publish Dialog="LicenseAgreementDlg" Control="Next" Event="NewDialog" Value="UserRegistrationDlg" Order="2">LicenseAccepted = "1"</Publish>
+			<Publish Dialog="SetupTypeDlg" Control="Back" Event="NewDialog" Value="UserRegistrationDlg"></Publish>
+		</UI>
+		<UIRef Id="WixUI_ErrorProgressText" />
+	</Product>
+</Wix>
