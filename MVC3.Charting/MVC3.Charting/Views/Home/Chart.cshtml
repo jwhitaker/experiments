@@ -1,0 +1,10 @@
+﻿@{
+	var key = new Chart(width: 600, height: 400)
+		.AddTitle("Staff Mobility")
+		.AddSeries(
+			name: "Employee",
+			xValue: new[] {  "Jan", "Feb", "Mar", "Api", "May", "Jun", "Jul", "Aug", "Sep"},
+			yValues: new[] { "2", "6", "4", "5", "3","4","9","2","5"}
+		)
+		.Write(format: "png");
+}

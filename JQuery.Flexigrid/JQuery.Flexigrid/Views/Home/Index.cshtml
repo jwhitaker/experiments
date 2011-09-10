@@ -1,0 +1,136 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<h2>Zero Configuration</h2>
+
+<table class="flexme1">
+	<thead>
+    		<tr>
+            	<th width="100">Col 1</th>
+            	<th width="100">Col 2</th>
+            	<th width="100">Col 3 is a long header name</th>
+            	<th width="300">Col 4</th>
+            </tr>
+    </thead>
+    <tbody>
+    		<tr>
+            	<td>This is data 1 with overflowing content</td>
+            	<td>This is data 2</td>
+            	<td>This is data 3</td>
+            	<td>This is data 4</td>
+            </tr>
+    		<tr>
+            	<td>This is data 1</td>
+            	<td>This is data 2</td>
+            	<td>This is data 3</td>
+            	<td>This is data 4</td>
+            </tr>
+    		<tr>
+            	<td>This is data 1</td>
+            	<td>This is data 2</td>
+            	<td>This is data 3</td>
+            	<td>This is data 4</td>
+            </tr>
+    		<tr>
+            	<td>This is data 1</td>
+            	<td>This is data 2</td>
+            	<td>This is data 3</td>
+            	<td>This is data 4</td>
+            </tr>
+    		<tr>
+            	<td>This is data 1</td>
+            	<td>This is data 2</td>
+            	<td>This is data 3</td>
+            	<td>This is data 4</td>
+            </tr>
+    		<tr>
+            	<td>This is data 1</td>
+            	<td>This is data 2</td>
+            	<td>This is data 3</td>
+            	<td>This is data 4</td>
+            </tr>
+    		<tr>
+            	<td>This is data 1</td>
+            	<td>This is data 2</td>
+            	<td>This is data 3</td>
+            	<td>This is data 4</td>
+            </tr>
+    		<tr>
+            	<td>This is data 1</td>
+            	<td>This is data 2</td>
+            	<td>This is data 3</td>
+            	<td>This is data 4</td>
+            </tr>
+    		<tr>
+            	<td>This is data 1</td>
+            	<td>This is data 2</td>
+            	<td>This is data 3</td>
+            	<td>This is data 4</td>
+            </tr>
+    		<tr>
+            	<td>This is data 1</td>
+            	<td>This is data 2</td>
+            	<td>This is data 3</td>
+            	<td>This is data 4</td>
+            </tr>
+    		<tr>
+            	<td>This is data 1</td>
+            	<td>This is data 2</td>
+            	<td>This is data 3</td>
+            	<td>This is data 4</td>
+            </tr>
+    		<tr>
+            	<td>This is data 1</td>
+            	<td>This is data 2</td>
+            	<td>This is data 3</td>
+            	<td>This is data 4</td>
+            </tr>
+            
+    </tbody>
+</table>
+
+<h2>JSON Datasource</h2>
+
+<button id="loadBtn" type="button">Load</button>
+
+<div class="table-container">
+	<table id="jsongrid" style="display:none"></table>
+</div>
+
+<style>
+	.table-container { width: 700px; }
+</style>
+
+<script type="text/javascript">
+	$(document).ready(function () {
+		$(".flexme1").flexigrid();
+
+		var grid = $('#jsongrid').flexigrid({
+			url: '@Url.Action("loademployees", new { controller = "home" })',
+			dataType: 'json',
+			colModel: [
+				{ display: 'First Name', name: 'FirstName', width: 100, sortable: true },
+				{ display: 'Last Name', name: 'LastName', width: 100, sortable: true },
+				{ display: 'Salary', name: 'Salary', width: 100, sortable: true }
+			],
+			sortname: 'FirstName',
+			sortorder: 'asc',
+			usepager: true,
+			singleSelect: true,
+			useRp: true,
+			rp: 10,
+			onFormatCell: function (idx, row) {
+				if (idx == 0) {
+					return '<a href="#">' + row.cell[idx] + '</a>';
+				}
+
+				return row.cell[idx];
+			}
+		});
+
+		$("#loadBtn").click(function () {
+			$('#jsongrid').flexReload();
+		});
+	});
+</script>

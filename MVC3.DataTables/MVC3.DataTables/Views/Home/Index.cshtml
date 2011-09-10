@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+@{
+	//var grid = new WebGrid(source: Model,
+	//    defaultSort: "FirstName",
+	////	fieldNamePrefix: "employees_",
+	//    rowsPerPage: ViewBag.RowsPerPage);
+	var grid = new WebGrid(
+		defaultSort: "FirstName",
+		rowsPerPage: ViewBag.RowsPerPage);
+
+	grid.Bind(ViewBag.Employees, rowCount: ViewBag.TotalEmployees, autoSortAndPage: false);
+	grid.Pager(WebGridPagerModes.NextPrevious);
+}
+<h2>Employee List</h2>
+<div id="grid">
+    @grid.GetHtml(
+        tableStyle: "grid",
+        headerStyle: "head",
+        alternatingRowStyle: "alt",
+        columns: grid.Columns(
+            grid.Column("FirstName"),
+            grid.Column("LastName"),
+            grid.Column("Salary",format:@<text>$@item.Salary</text>)
+        )
+    )
+</div>
+
