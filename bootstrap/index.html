@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Bootstrap 101 Template</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- Bootstrap -->
+		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+		<style>
+			body {
+				padding-top:60px;
+			}
+		</style>
+		<link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+	</head>
+	<body>
+		<div class="navbar navbar-inverse navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container">
+					<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="brand" href="#">Bootstrap Experiment</a>
+					<div class="nav-collapse collapse">
+						<ul class="nav">
+							<li class="active"><a href="#tableDataTest">Table Data</a></li>
+							<li><a href="#formTest">Form Test</a></li>
+							<li><a href="#contact">Contact</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="container">
+			<h1 id="tableDataTest">Table Data</h1>
+			
+			<table class="table table-hover">
+			<thead>
+				<tr>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Email Address</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr><td>Edan</td><td>Moss</td><td>nibh@malesuadavel.ca</td><td><a href="#">Edit</a> | <a href="#">Delete</a></td></tr>
+				<tr><td>Jillian</td><td>Mitchell</td><td>sit.amet@mi.org</td><td><a href="#">Edit</a> | <a href="#">Delete</a></td></tr>
+				<tr><td>Ciara</td><td>Gomez</td><td>lacus.varius.et@ipsumprimisin.com</td><td><a href="#">Edit</a> | <a href="#">Delete</a></td></tr>
+				<tr><td>Malachi</td><td>Howard</td><td>non.sapien@Cras.com</td><td><a href="#">Edit</a> | <a href="#">Delete</a></td></tr>
+				<tr><td>Halla</td><td>Scott</td><td>pede.nec@nequesed.edu</td><td><a href="#">Edit</a> | <a href="#">Delete</a></td></tr>
+				<tr><td>Upton</td><td>Flores</td><td>egestas.urna.justo@utlacusNulla.edu</td><td><a href="#">Edit</a> | <a href="#">Delete</a></td></tr>
+				<tr><td>Amy</td><td>Fields</td><td>pellentesque.eget.dictum@luctusfelis.edu</td><td><a href="#">Edit</a> | <a href="#">Delete</a></td></tr>
+				<tr><td>Evelyn</td><td>Phelps</td><td>ipsum.Suspendisse@mollis.edu</td><td><a href="#">Edit</a> | <a href="#">Delete</a></td></tr>
+				<tr><td>Haley</td><td>Gould</td><td>auctor.nunc@dolor.com</td><td><a href="#">Edit</a> | <a href="#">Delete</a></td></tr>
+			</tbody>
+			</table>
+			
+			<div class="pagination pagination-centered">
+				<ul>
+					<li class="disabled"><a href="#">&laquo;</a></li>
+					<li class="active"><a href="#">1</a></li>
+					<li><a href="#">2</a></li>
+					<li class=""><a href="#">&raquo;</a></li>
+				</ul>
+			</div>
+			
+			<h1 id="formTest">Form</h1>
+			
+			<form class="form-horizontal">
+			
+			
+  <div class="control-group">
+    <label class="control-label" for="inputFirstName">First Name</label>
+    <div class="controls">
+      <input type="text" id="inputFirstName" placeholder="First Name">
+    </div>
+  </div>
+  
+  <div class="control-group">
+    <label class="control-label" for="inputLastName">Last Name</label>
+    <div class="controls">
+      <input type="text" id="inputLastName" placeholder="Last Name">
+    </div>
+  </div>
+			
+  <div class="control-group">
+    <label class="control-label" for="inputEmail">Email</label>
+    <div class="controls">
+      <input type="text" id="inputEmail" placeholder="Email">
+    </div>
+  </div>
+  
+  <div class="control-group">
+	<p class="control-label">Multiple Items</p>
+	<div class="controls">
+		<div class="row-fluid">
+		<div class="controls span2">
+			<label class="checkbox"><input type="checkbox" value="option1" id="inlineCheckbox1" />Checkbox 1</label>
+			<label class="checkbox"><input type="checkbox" value="option2" id="inlineCheckbox2" />Checkbox 2</label>
+			<label class="checkbox"><input type="checkbox" value="option3" id="inlineCheckbox3" />Checkbox 3</label>
+			<label class="checkbox"><input type="checkbox" value="option4" id="inlineCheckbox4" />Checkbox 4</label>
+		</div>
+		<div class="controls span2">
+			<label class="checkbox"><input type="checkbox" value="option5" id="inlineCheckbox5" />Checkbox 5</label>
+			<label class="checkbox"><input type="checkbox" value="option6" id="inlineCheckbox6" />Checkbox 6</label>
+			<label class="checkbox"><input type="checkbox" value="option7" id="inlineCheckbox7" />Checkbox 7</label>
+			<label class="checkbox"><input type="checkbox" value="option8" id="inlineCheckbox8" />Checkbox 8</label>
+		</div>
+		<div class="controls span2">
+			<label class="checkbox"><input type="checkbox" value="option5" id="inlineCheckbox5" />Checkbox 5</label>
+			<label class="checkbox"><input type="checkbox" value="option6" id="inlineCheckbox6" />Checkbox 6</label>
+			<label class="checkbox"><input type="checkbox" value="option7" id="inlineCheckbox7" />Checkbox 7</label>
+			<label class="checkbox"><input type="checkbox" value="option8" id="inlineCheckbox8" />Checkbox 8</label>
+		</div>
+		</div>
+	</div>
+  </div>
+  
+  
+			<div class="form-actions">
+  <button type="submit" class="btn btn-primary">Save changes</button>
+  <button type="button" class="btn">Cancel</button>
+</div>
+			</form>
+		</div>
+
+		
+
+
+	<script src="http://code.jquery.com/jquery.js"></script>
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+	</body>
+</html>
